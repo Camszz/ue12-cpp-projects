@@ -1,0 +1,1 @@
+/bin/c++  -g  -rdynamic CMakeFiles/calc.dir/main.cpp.o CMakeFiles/calc.dir/cpp/split.cpp.o  -o calc 

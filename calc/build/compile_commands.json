@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/camsz/prgms/ue12-projects/calc/build",
+  "command": "/bin/c++   -I/home/camsz/prgms/ue12-projects/calc/./includes -I/home/camsz/prgms/ue12-projects/calc/includes  -g   -o CMakeFiles/calc.dir/main.cpp.o -c /home/camsz/prgms/ue12-projects/calc/main.cpp",
+  "file": "/home/camsz/prgms/ue12-projects/calc/main.cpp"
+},
+{
+  "directory": "/home/camsz/prgms/ue12-projects/calc/build",
+  "command": "/bin/c++   -I/home/camsz/prgms/ue12-projects/calc/./includes -I/home/camsz/prgms/ue12-projects/calc/includes  -g   -o CMakeFiles/calc.dir/cpp/split.cpp.o -c /home/camsz/prgms/ue12-projects/calc/cpp/split.cpp",
+  "file": "/home/camsz/prgms/ue12-projects/calc/cpp/split.cpp"
+}
+]
