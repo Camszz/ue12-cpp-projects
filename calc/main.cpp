@@ -14,46 +14,54 @@ int main(int argc, char **argv)
         for (i = 1; i < argc; i = i + 1)
             elements.push_back(argv[i]);
     }
-
+    int i;
     i = 0;
     while (elements.size() > 1)
     {
-        if elements[i] == 'x'
+        if (elements[i] == "x")
             {
-                num1 = stof(elements[i - 2]) ; num2 = stof(elements[i - 1])
+                num1 = stof(elements[i - 2]) ; num2 = stof(elements[i - 1]);
                 num = num1 * num2;
                 elements[i] = to_string(num);
-                elements.erase(i - 1);
-                elements.erase(i - 2);
-                i = i - 2
+                elements.erase(elements.begin() + i - 2, elements.begin() + i);
+                i = i - 2;
             }
-        else if elements[i] == '/'
+        else if (elements[i] == "/")
             {
                 num1 = stof(elements[i - 2]) ; num2 = stof(elements[i - 1]);
                 num = num1 / num2;
                 elements[i] = to_string(num);
-                elements.erase(i - 1);
-                elements.erase(i - 2);
-                i=i-2
+                elements.erase(elements.begin() + i - 2, elements.begin() + i);
+                i=i-2;
             }
-        else if elements[i] == '-'
+        else if (elements[i] == "-")
             {
                 num1 = stof(elements[i - 2]) ; num2 = stof(elements[i - 1]);
                 num = num1 - num2;
                 elements[i] = to_string(num);
-                elements.erase(i - 1);
-                elements.erase(i - 2);
-                i=i-2
+                elements.erase(elements.begin() + i - 2, elements.begin() + i);
+                i=i-2;
             }
-        else if elements[i] == '+'
+        else if (elements[i] == "+")
             {
                 num1 = stof(elements[i - 2]) ; num2 = stof(elements[i - 1]);
                 num = num1 + num2;
                 elements[i] = to_string(num);
-                elements.erase(i - 1);
-                elements.erase(i - 2);
+                elements.erase(elements.begin() + i - 2, elements.begin() + i);
+                i = i-2;
+            }
+        else
+            {
+                i = i+1;
             }
     }
-    cout << elements[0];
+    if (elements.size() == 1)
+        {
+        cout << elements[0];
+        }
+    else
+        {
+            cout << "Error";
+        }
     return 0;
 }
