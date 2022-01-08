@@ -16,7 +16,7 @@ Matrix::Matrix()
 // --- //
 
 
-Matrix::Matrix(vector<vector<float>> coefs)
+Matrix::Matrix(vector<vector<double>> coefs)
 {
     _nlignes = coefs.size();
     _ncolonnes = coefs[0].size();
@@ -26,13 +26,13 @@ Matrix::Matrix(vector<vector<float>> coefs)
 
 // --- //
 
-Matrix::Matrix(int n_colonnes, int n_lignes, double fill)
+Matrix::Matrix(int n_lignes, int n_colonnes, double fill)
 {
-    vector<vector<float>> coefs_temp;
+    vector<vector<double>> coefs_temp;
 
     for (int i = 0; i < n_lignes; i++)
     {
-        vector<float> ligne;
+        vector<double> ligne;
         coefs_temp.push_back(ligne);
         for (int j = 0; j < n_colonnes; j++)
         {
@@ -48,7 +48,7 @@ Matrix::Matrix(int n_colonnes, int n_lignes, double fill)
 
 //getters ----------------------------------------
 
-vector<vector<float>> Matrix::get_coefs() const
+vector<vector<double>> Matrix::get_coefs() const
 {
     return _coefs;
 }
@@ -58,12 +58,25 @@ vector<int> Matrix::get_size() const
     return {_nlignes, _ncolonnes};
 }
 
+//--//
+
+double Matrix::get_coef(int i, int j)
+{
+    return _coefs[i][j];
+}
 
 //setters ----------------------------------------
 
-void Matrix::set_coefs(vector<vector<float>> coefs)
+void Matrix::set_coefs(vector<vector<double>> coefs)
 {
     _coefs = coefs;
+}
+
+//---//
+
+void Matrix::set_coef(double coef, int i, int j)
+{
+    _coefs[i][j] = coef;
 }
 
 
@@ -71,14 +84,14 @@ void Matrix::set_coefs(vector<vector<float>> coefs)
 
 Matrix Matrix::somme_matrice(Matrix A, bool inplace)
 {
-    vector<vector<float>> coefs_temp;
+    vector<vector<double>> coefs_temp;
 
     // création de la matrice somme
     if ((A._ncolonnes == _ncolonnes) && (A._nlignes == _nlignes))
     {
         for (int i = 0; i < _nlignes; i++)
         {
-            vector<float> ligne;
+            vector<double> ligne;
             coefs_temp.push_back(ligne);
             for (int j = 0; j < _ncolonnes; j++)
             {
@@ -102,14 +115,14 @@ Matrix Matrix::somme_matrice(Matrix A, bool inplace)
 
 Matrix Matrix::produit_matrice(Matrix A, bool inplace)
 {
-    vector<vector<float>> coefs_temp;
+    vector<vector<double>> coefs_temp;
 
     // création de la matrice produit
     if (_ncolonnes == A._nlignes)
     {
         for (int i = 0; i < _nlignes; i++)
         {
-            vector<float> ligne;
+            vector<double> ligne;
             coefs_temp.push_back(ligne);
             for (int j = 0; j < A._ncolonnes; j++)
             {
@@ -137,12 +150,12 @@ Matrix Matrix::produit_matrice(Matrix A, bool inplace)
 
 Matrix Matrix::produit_par_scalaire(double lambda, bool inplace)
 {
-    vector<vector<float>> coefs_temp;
+    vector<vector<double>> coefs_temp;
 
     // création de la matrice finale
     for (int i = 0; i < _nlignes; i++)
     {
-        vector<float> ligne;
+        vector<double> ligne;
         coefs_temp.push_back(ligne);
         for (int j = 0; j < _ncolonnes; j++)
         {
@@ -158,4 +171,29 @@ Matrix Matrix::produit_par_scalaire(double lambda, bool inplace)
 
     // renvoi de la matrice finale
     return Matrix(coefs_temp);
+}
+
+//transposition ----------------------------------------
+
+Matrix Matrix::transpose(bool inplace)
+{
+    vector<vector<double>> coefs_temp;
+    for (int j = 0; j < _ncolonnes; j++)
+    {
+        vector<double> ligne;
+        coefs_temp.push_back(ligne);
+        for (int i = 0; i < _nlignes; i++)
+        {
+            coefs_temp[j].push_back(_coefs[i][j]);
+        }
+    }
+
+    if (inplace == true)
+    {
+        _coefs = coefs_temp;
+        _nlignes = _coefs.size();
+        _ncolonnes = _coefs[0].size();
+    }
+
+    return coefs_temp;
 }
