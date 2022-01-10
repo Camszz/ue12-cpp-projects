@@ -1,5 +1,8 @@
+#include<vector>
+#include<cassert>
+
 #include "Matrix.h"
-#include <vector>
+#include "math.h"
 
 using namespace std;
 
@@ -45,6 +48,26 @@ Matrix::Matrix(int n_lignes, int n_colonnes, double fill)
 
 }
 
+Matrix::Matrix(int n, double fill, bool diag)
+{
+    if (diag)
+    {
+        Matrix temp(n, n);
+        for (int i = 0; i < n; i++)
+        {
+            temp.set_coef(1., i, i);
+        }
+        _nlignes = n;
+        _ncolonnes = n;
+        _coefs = temp.get_coefs();
+    }
+
+    else
+    {
+        Matrix(n, n, fill);
+    }
+}
+
 
 //getters ----------------------------------------
 
@@ -63,6 +86,14 @@ vector<int> Matrix::get_size() const
 double Matrix::get_coef(int i, int j)
 {
     return _coefs[i][j];
+}
+
+//--//
+
+double Matrix::to_scalar()
+{
+    assert(_ncolonnes * _nlignes == 1 && "to_scalar of non 1x1 matrix");
+    return _coefs[0][0];
 }
 
 //setters ----------------------------------------
@@ -96,6 +127,37 @@ Matrix Matrix::somme_matrice(Matrix A, bool inplace)
             for (int j = 0; j < _ncolonnes; j++)
             {
                 coefs_temp[i].push_back(_coefs[i][j] + A._coefs[i][j]);
+            }
+        }
+    }
+
+    //si nécessaire, modification de la matrice initiale
+    if (inplace == true)
+    {
+        _coefs = coefs_temp;
+    }
+
+    // renvoi de la matrice somme
+    return Matrix(coefs_temp);
+}
+
+
+//différence de matrices ----------------------------------------
+
+Matrix Matrix::difference_matrice(Matrix A, bool inplace)
+{
+    vector<vector<double>> coefs_temp;
+
+    // création de la matrice somme
+    if ((A._ncolonnes == _ncolonnes) && (A._nlignes == _nlignes))
+    {
+        for (int i = 0; i < _nlignes; i++)
+        {
+            vector<double> ligne;
+            coefs_temp.push_back(ligne);
+            for (int j = 0; j < _ncolonnes; j++)
+            {
+                coefs_temp[i].push_back(_coefs[i][j] - A._coefs[i][j]);
             }
         }
     }
@@ -196,4 +258,19 @@ Matrix Matrix::transpose(bool inplace)
     }
 
     return coefs_temp;
+}
+
+//norme ----------------------------------------
+
+double Matrix::norme()
+{
+    double s = 0;
+    for (vector<double> ligne : _coefs)
+    {
+        for (double coef : ligne)
+        {
+            s += pow(coef, 2);
+        } 
+    }
+    return pow(s, 0.5);
 }
