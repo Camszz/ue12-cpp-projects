@@ -6,7 +6,7 @@ Matrix gradient_conjugue(Matrix A, Matrix b, Matrix x0, double epsilon)
     Matrix r = b.difference_matrice(A.produit_matrice(x0));
     Matrix p = r;
     int k = 0;
-    Matrix X;
+    Matrix X = x0;
     double alpha, alpha1, alpha2, beta;
     while (r.norme() > epsilon)
     {
@@ -26,7 +26,7 @@ Matrix gradient_conjugue(Matrix A, Matrix b, Matrix x0, double epsilon)
     return X;
 }
 
-Matrix euler_explicite(Matrix &T, Matrix K, double deltaT)
+Matrix euler_explicite(Matrix T, Matrix K, double deltaT)
 {
     T.somme_matrice(K.produit_matrice(T).produit_par_scalaire(-deltaT));
     return T;

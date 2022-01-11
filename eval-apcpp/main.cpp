@@ -47,15 +47,16 @@ void init(Matrix &K, Matrix &X, Matrix &T, int N, int Nt, double deltaX)
 int main(int, char **)
 {
     //déclaration des variables
-    int N, Nt;
+    int N = 10, Nt = 101;
     double tfinal = 0.5;
     cout << "Saisissez un entier N de sorte que 1/N soit le pas spacial du système \n";
     cin >> N;
-    cout << "Saisissez un entier Nt de sorte que 1/Nt soit le pas temporel du système \n PRENEZ Nt > " << pow(N, 2) << "\n";
+    cout << "Saisissez un entier Nt de sorte que " << tfinal << "/Nt soit le pas temporel du système \n PRENEZ Nt > " << pow(N, 2) << "\n";
     cin >> Nt;
     if (pow(N, 2) >= Nt)
     {
         cout << "Le système ne devrait pas converger. Veuillez choisir des valeurs N et Nt telles que N^2 < Nt.";
+        exit(EXIT_FAILURE);
     }
     vector<Matrix> matrixT_k;
     vector<vector<vector<double>>> T_k;
@@ -64,8 +65,8 @@ int main(int, char **)
 
     //initialisation
     init(K, X, T, N, Nt, deltaX);
-    int choix_methode;
-    cout << "Tapez 1 pour la méthode Euler explicite (q2), tapez 2 pour la méthode implicite (q4)";
+    int choix_methode = 2;
+    cout << "Tapez 1 pour la méthode Euler explicite (q2), tapez 2 pour la méthode implicite (q4) \n";
     cin >> choix_methode;
 
     //calcul des T_k
