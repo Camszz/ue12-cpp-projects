@@ -1,9 +1,13 @@
 #ifndef DEF_MATRIX
 #define DEF_MATRIX
+#pragma once
 
 #include<vector>
 #include<cassert>
-#include <string>
+#include<string>
+#include<fstream>
+#include<iostream>
+
 
 #include "math.h"
 
@@ -25,11 +29,25 @@ class Matrix
     Matrix transpose(bool inplace=false);
     double norme(); //racine de la somme des coefs au carré
 
+    Matrix operator+(const Matrix& A) const;
+    Matrix operator*(const Matrix& A) const;
+    Matrix operator-(const Matrix& A) const;
+    
+    Matrix operator/(double lambda) const;
+    Matrix operator*(double lambda) const;
+
+    Matrix switch_lines(int a, int b, bool inplace = false);
+    Matrix switch_cols(int a, int b, bool inplace = false);
+
+    //export_matrix
+    void WriteToFile(std::ofstream& out);
+    void afficher();
+
     //getters
     std::vector<std::vector<double>> get_coefs() const;
-    double get_coef(int i, int j);
+    double get_coef(int i, int j) const;
     std::vector<int> get_size() const;
-    double to_scalar(); //si A est de taille 1x1, renvoie sa valeur comme un scalaire
+    double to_scalar() const; //si A est de taille 1x1, renvoie sa valeur comme un scalaire
 
     //setters
     void set_coefs(std::vector<std::vector<double>> coefs);

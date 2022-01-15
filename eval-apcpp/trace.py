@@ -1,8 +1,12 @@
 import matplotlib.pyplot as plt
 import pandas as pd 
 import numpy as np
+import os
 
 i=0
+print(os.getcwd())
+os.chdir('data')
+print(os.getcwd())
 fichier = open("data.txt", 'r')
 lignes = fichier.readlines()
 
