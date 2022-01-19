@@ -75,7 +75,7 @@ void set_parameters(int& N, int& Nt, int& choix_methode, std::string& filename, 
         std::cout << "Le système ne devrait pas converger. Veuillez choisir des valeurs N et Nt telles que N^2 < Nt.";
         exit(EXIT_FAILURE);
     }
-    std::cout << "Tapez : \n 1 - méthode Euler explicite (q2) \n 2 - méthode implicite, gradient conjugué (q4) // ATTENTION : ne marche pas avec D aléatoire \n 3 - méthode implicite, jacobi (q4) // fonctionne avec D aléatoire \n";
+    std::cout << "Tapez : \n 1 - méthode Euler explicite (q2) \n 2 - méthode implicite, gradient conjugué (q4) // ATTENTION : ne marche pas avec D aléatoire \n 3 - méthode implicite, jacobi (q4) // fonctionne avec D aléatoire \n 4 - méthodes des matrices creuses, gradient \n";
     std::cin >> choix_methode;
     std::cout << "Entrez un nom de fichier \n";
     std::cin >> filename;

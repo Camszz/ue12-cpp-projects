@@ -3,6 +3,7 @@
 #pragma once
 
 #include"Matrix.h"
+#include"Matrixcreuse.h"
 
 Matrix gradient_conjugue(const Matrix& A, const Matrix& b, const Matrix& x0, double epsilon)
 {
@@ -16,6 +17,31 @@ Matrix gradient_conjugue(const Matrix& A, const Matrix& b, const Matrix& x0, dou
         //calcul de alpha
         alpha1 = (r.transpose()*r).to_scalar();
         alpha2 = (p.transpose()*A*p).to_scalar();
+        alpha = alpha1 / alpha2;
+        //calcul de X_k+1, R_k+1, P_k+1
+        X = X+(p*alpha);
+        r = r-(A*p*alpha);
+        beta = (r.transpose()*r).to_scalar() / alpha1;
+        p = r+(p*beta);
+        //on incrémente k de 1
+        k += 1;
+    }
+
+    return X;
+}
+
+Matrix gradient_conjugue_creux(const Matrixcreuse& A, const Matrix& b, const Matrix& x0, double epsilon)
+{
+    Matrix r = b-(A*(x0));
+    Matrix p = r;
+    int k = 0;
+    Matrix X = x0;
+    double alpha, alpha1, alpha2, beta;
+    while (r.norme() > epsilon)
+    {
+        //calcul de alpha
+        alpha1 = (r.transpose()*r).to_scalar();
+        alpha2 = (p.transpose()*(A*p)).to_scalar();
         alpha = alpha1 / alpha2;
         //calcul de X_k+1, R_k+1, P_k+1
         X = X+(p*alpha);

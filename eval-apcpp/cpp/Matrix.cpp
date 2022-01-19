@@ -96,7 +96,7 @@ void Matrix::set_coefs(vector<vector<double>> coefs)
     _coefs = coefs;
 }
 
-void Matrix::set_coef(double coef, int i, int j)
+void Matrix::set_coef(const double coef, int i, int j)
 {
     _coefs[i][j] = coef;
 }

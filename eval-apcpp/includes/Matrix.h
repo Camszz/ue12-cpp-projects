@@ -51,7 +51,7 @@ class Matrix
 
     //setters
     void set_coefs(std::vector<std::vector<double>> coefs);
-    void set_coef(double coef, int i, int j);
+    void set_coef(const double coef, int i, int j);
 
 
     private :
