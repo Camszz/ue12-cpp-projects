@@ -1,5 +1,5 @@
 ## Main program :
-    - Used to either solve the equation or test the different methods implemented;
+    - Used to either solve the equation or test the different methods implemented (ATTENTION : tests for euler_explicit and the gradient methods have not been commited);
     - Lets you choose both the temporal and the spatial step. Be careful to keep DeltaX^2 < DeltaT !!;
     - You can create a random D vector, but only the Euler explicit and the Jacobi methods can then solve your system;
     - You can choose to save your settings (dt, dx, method used) and the execution time needed in the "performance.txt file". You already have a few results there (with a non-random D vector)
