@@ -19,7 +19,7 @@ Matrixcreuse::Matrixcreuse()
     vector<double> _coefs;
 }
 
-Matrixcreuse::Matrixcreuse(const Matrix A)
+Matrixcreuse::Matrixcreuse(const Matrix& A)
 {
     int nombrecoefs=0;
     vector<int> indicesli;
@@ -48,7 +48,7 @@ Matrixcreuse::Matrixcreuse(const Matrix A)
 
 //opérations
 
-Matrix Matrixcreuse::operator*(const Matrix X) const
+Matrix Matrixcreuse::operator*(const Matrix& X) const
 {
     if (X.get_size()[1] != 1)
     {

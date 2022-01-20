@@ -18,26 +18,11 @@ class Matrixcreuse
 
     //constructors
     Matrixcreuse();
-    Matrixcreuse(const Matrix A);
-    Matrixcreuse(int ncoefs, double fill = 0.);
+    Matrixcreuse(const Matrix& A);
 
     //opérations
 
-    Matrix operator*(const Matrix X) const;
-
-    //export_Matrix_creuse
-    void WriteToFile(std::ofstream& out);
-    void afficher();
-
-    //getters
-    std::vector<std::vector<double>> get_coefs() const;
-    double get_coef(int i, int j) const;
-    std::vector<int> get_size() const;
-    double to_scalar() const; //si A est de taille 1x1, renvoie sa valeur comme un scalaire
-
-    //setters
-    void set_coefs(std::vector<std::vector<double>> coefs);
-    void set_coef(double coef, int i, int j);
+    Matrix operator*(const Matrix& X) const;
 
 
     private :

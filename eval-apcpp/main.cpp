@@ -56,10 +56,10 @@ int main(int, char **)
 
     else if (choix_methode == 2) //Gradient conjugué
     {
+        Matrix A = Matrix(N, 1., true).somme_matrice(K.produit_par_scalaire(deltaT));
         for (int k = 0; k < Nt; k++)
         {
             matrixT_k.push_back(T);
-            Matrix A = Matrix(N, 1., true).somme_matrice(K.produit_par_scalaire(deltaT));
             T = gradient_conjugue(A, T, euler_explicite(T, K, deltaT), epsilon);
             T.set_coef(0., 0, 0);
             T.set_coef(0., N - 1, 0);
@@ -68,10 +68,10 @@ int main(int, char **)
 
     else if (choix_methode == 3) //Jacobi
     {
+        Matrix A = Matrix(N, 1., true).somme_matrice(K.produit_par_scalaire(deltaT));
         for (int k = 0; k < Nt; k++)
         {
             matrixT_k.push_back(T);
-            Matrix A = Matrix(N, 1., true).somme_matrice(K.produit_par_scalaire(deltaT));
             T = jacobi(A, T, euler_explicite(T, K, deltaT), epsilon);
             T.set_coef(0., 0, 0);
             T.set_coef(0., N - 1, 0);
@@ -80,10 +80,10 @@ int main(int, char **)
 
     else if (choix_methode == 4) //Gradient conjugué, matrices creuses
     {
+        Matrixcreuse A(Matrix(N, 1., true).somme_matrice(K.produit_par_scalaire(deltaT)));
         for (int k = 0; k < Nt; k++)
         {
             matrixT_k.push_back(T);
-            Matrixcreuse A(Matrix(N, 1., true).somme_matrice(K.produit_par_scalaire(deltaT)));
             T = gradient_conjugue_creux(A, T, euler_explicite(T, K, deltaT), epsilon);
             T.set_coef(0., 0, 0);
             T.set_coef(0., N - 1, 0);

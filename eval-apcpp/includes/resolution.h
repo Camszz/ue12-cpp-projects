@@ -57,7 +57,9 @@ Matrix gradient_conjugue_creux(const Matrixcreuse& A, const Matrix& b, const Mat
 
 Matrix euler_explicite(const Matrix& T, const Matrix& K, const double deltaT)
 {
-    return T-(K*T*deltaT);
+    Matrix temp = K*T;
+    Matrix out = T-(temp*deltaT);
+    return out;
 }
 
 Matrix jacobi(const Matrix& A, const Matrix& b, const Matrix& x0, double epsilon)

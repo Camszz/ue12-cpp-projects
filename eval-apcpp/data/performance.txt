@@ -1,33 +1,42 @@
-Euler explicite;0.02;0.00019992;0.272878
-Euler explicite;0.02;0.000166667;0.322055
-Euler explicite;0.02;0.000142857;0.382634
-Euler explicite;0.02;7.14286e-05;0.751707
-Euler explicite;0.02;5e-05;1.16251
-Gradient conjugué;0.02;0.00019992;1.71041
-Gradient conjugué;0.02;0.000166667;1.91943
-Gradient conjugué;0.02;0.0001;3.01265
-Gradient conjugué;0.02;5e-05;5.48975
-Jacobi;0.02;0.00019992;1.55443
-Jacobi;0.02;0.000125;2.20661
-Jacobi;0.02;7.14286e-05;3.51857
-Jacobi;0.02;5e-05;4.92598
-Euler explicite;0.1;5e-05;0.211658
-Euler explicite;0.04;5e-05;0.48099
-Euler explicite;0.02;5e-05;1.01254
-Euler explicite;0.0133333;5e-05;1.80626
-Euler explicite;0.01;4.9995e-05;2.54285
-Gradient conjugué;0.1;5e-05;0.666498
-Gradient conjugué;0.04;5e-05;2.07025
-Gradient conjugué;0.02;5e-05;5.10906
-Gradient conjugué;0.0133333;5e-05;11.5024
-Gradient conjugué;0.01;4.9995e-05;16.3688
-Jacobi;0.1;5e-05;0.705528
-Jacobi;0.04;5e-05;1.87854
-Jacobi;0.02;5e-05;4.76779
-Jacobi;0.0133333;5e-05;9.9417
-Jacobi;0.01;4.9995e-05;16.5484
-Matrices creuses, gradient;0.1;4.9995e-05;0.826167
-Matrices creuses, gradient;0.04;4.9995e-05;3.01328
-Matrices creuses, gradient;0.02;4.9995e-05;7.62929
-Matrices creuses, gradient;0.0133333;4.9995e-05;16.4268
-Matrices creuses, gradient;0.01;4.9995e-05;26.8982
+Euler explicite;0.02;0.00019992;0.272878; version vector<vector>
+Euler explicite;0.02;0.000166667;0.322055; version vector<vector>
+Euler explicite;0.02;0.000142857;0.382634; version vector<vector>
+Euler explicite;0.02;7.14286e-05;0.751707; version vector<vector>
+Euler explicite;0.02;5e-05;1.16251; version vector<vector>
+Gradient conjugué;0.02;0.00019992;1.71041; version vector<vector>
+Gradient conjugué;0.02;0.000166667;1.91943; version vector<vector>
+Gradient conjugué;0.02;0.0001;3.01265; version vector<vector>
+Gradient conjugué;0.02;5e-05;5.48975; version vector<vector>
+Jacobi;0.02;0.00019992;1.55443; version vector<vector>
+Jacobi;0.02;0.000125;2.20661; version vector<vector>
+Jacobi;0.02;7.14286e-05;3.51857; version vector<vector>
+Jacobi;0.02;5e-05;4.92598; version vector<vector>
+Euler explicite;0.1;5e-05;0.211658; version vector<vector>
+Euler explicite;0.04;5e-05;0.48099; version vector<vector>
+Euler explicite;0.02;5e-05;1.01254; version vector<vector>
+Euler explicite;0.0133333;5e-05;1.80626; version vector<vector>
+Euler explicite;0.01;4.9995e-05;2.54285; version vector<vector>
+Gradient conjugué;0.1;5e-05;0.666498; version vector<vector>
+Gradient conjugué;0.04;5e-05;2.07025; version vector<vector>
+Gradient conjugué;0.02;5e-05;5.10906; version vector<vector>
+Gradient conjugué;0.0133333;5e-05;11.5024; version vector<vector>
+Gradient conjugué;0.01;4.9995e-05;16.3688; version vector<vector>
+Jacobi;0.1;5e-05;0.705528; version vector<vector>
+Jacobi;0.04;5e-05;1.87854; version vector<vector>
+Jacobi;0.02;5e-05;4.76779; version vector<vector>
+Jacobi;0.0133333;5e-05;9.9417; version vector<vector>
+Jacobi;0.01;4.9995e-05;16.5484; version vector<vector>
+Matrices creuses, gradient;0.1;4.9995e-05;0.826167; version vector<vector>
+Matrices creuses, gradient;0.04;4.9995e-05;3.01328; version vector<vector>
+Matrices creuses, gradient;0.02;4.9995e-05;7.62929; version vector<vector>
+Matrices creuses, gradient;0.0133333;4.9995e-05;16.4268; version vector<vector>
+Matrices creuses, gradient;0.01;4.9995e-05;26.8982; version vector<vector>
+Matrices creuses, gradient;0.02;0.0001;2.15549; version vector<vector>
+Matrices creuses, gradient;0.02;5e-05;4.07376; version vector<vector>
+Euler explicite;0.02;5e-05;0.28767; version vector<double> + références
+Gradient conjugué;0.02;5e-05;0.692; version vector<double> + références
+Jacobi;0.02;5e-05;0.630478; version vector<double> + références
+Matrices creuses, gradient;0.02;5e-05;0.412806; version vector<double> + références
+Matrices creuses, gradient;0.005;1e-05;19.8639; version vector<double> + références
+Gradient conjugué;0.01;3.33333e-05;4.47681; version vector<double> + références
+Matrices creuses, gradient;0.01;3.33333e-05;1.72515; version vector<double> + références

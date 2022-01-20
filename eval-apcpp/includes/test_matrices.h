@@ -41,12 +41,18 @@ void test1()
     cout << "Entrez un scalaire ";
     cin >> lambda;
 
-    cout << "A+B \n";
-    (A+B).afficher();
-    cout << "A*B \n";
-    (A*B).afficher();
-    cout << "A-B \n";
-    (A-B).afficher();
+    if (A.get_size() == B.get_size())
+    {
+        cout << "A+B \n";
+        (A+B).afficher();
+        cout << "A-B \n";
+        (A-B).afficher();
+    }
+    if (A.get_size()[1] == B.get_size()[0])
+    {
+        cout << "A*B \n";
+        (A*B).afficher();
+    }
     cout << "lambda*A \n";
     (A*lambda).afficher();
 } 
